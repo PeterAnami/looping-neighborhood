@@ -1,7 +1,9 @@
-# -*- coding: utf-8 -*-
-from __future__ import unicode_literals
-
 from django.db import models
+from django.contrib.auth.models import User
+from django.db.models.deletion import CASCADE, SET_NULL
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+from cloudinary.models import CloudinaryField
 
 # Create your models here.
 class Profile(models.Model):
