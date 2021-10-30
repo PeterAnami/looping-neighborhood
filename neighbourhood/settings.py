@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 
 import os
 from decouple import config
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -49,6 +52,7 @@ INSTALLED_APPS = [
     'bootstrap4',
     'tinymce',
     'rest_framework',
+    'cloudinary',
 ]
 
 MIDDLEWARE = [
@@ -89,9 +93,9 @@ WSGI_APPLICATION = 'neighbourhood.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'tribune',
-        'USER': '<Your Database Username >',
-    'PASSWORD':'<Your Database Password>',
+        'NAME': 'neighbor',
+        'USER':'moringa',
+    'PASSWORD':'Access',
     }
 }
 
@@ -139,3 +143,9 @@ STATICFILES_DIRS = [
 ]
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+cloudinary.config( 
+  cloud_name = "dcfbiz9fv", 
+  api_key = "481773377433656", 
+  api_secret = "VUSWe6tj1twJ7LvNXlQMWQhf_vo" 
+)
