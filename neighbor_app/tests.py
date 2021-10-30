@@ -4,7 +4,6 @@ from __future__ import unicode_literals
 from django.test import TestCase
 
 # Create your tests here.
-# Create your tests here.
 from neighbor_app.views import neighborhood
 from django.test import TestCase
 from .models import Business,Profile,NeighborHood,Post
