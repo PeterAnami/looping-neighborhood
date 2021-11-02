@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 # import os
+from pathlib import Path
 from decouple import config
 import cloudinary
 import cloudinary.uploader
@@ -24,6 +25,7 @@ MODE=config("MODE", default="dev")
 SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
 # development
+
 if config('MODE')=="dev":
    DATABASES = {
        'default': {
@@ -32,7 +34,6 @@ if config('MODE')=="dev":
            'USER': config('DB_USER'),
            'PASSWORD': config('DB_PASSWORD'),
            'HOST': config('DB_HOST'),
-           'PORT': '',
        }
        
    }
@@ -50,7 +51,7 @@ DATABASES['default'].update(db_from_env)
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # Quick-start development settings - unsuitable for production
@@ -130,6 +131,7 @@ DATABASES = {
         'NAME': 'neighbor',
         'USER':'moringa',
     'PASSWORD':'Access',
+    'DISABLE_SERVER_SIDE_CURSORS': True,
     }
 }
 
@@ -169,14 +171,6 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
-
-# STATIC_URL = '/static/'
-# STATIC_URL = '/static/'
-# STATICFILES_DIRS = [
-#     os.path.join(BASE_DIR, "static"),
-# ]
-# MEDIA_URL = '/media/'
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 cloudinary.config( 
   cloud_name = "dcfbiz9fv", 
