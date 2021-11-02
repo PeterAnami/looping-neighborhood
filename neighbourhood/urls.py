@@ -21,5 +21,5 @@ from django.urls import path,include
 urlpatterns = [
     path(r'^admin/', admin.site.urls),
     path('',include('neighbor_app.urls')),
-    # path('api-token-auth/', obtain_auth_token)
+    
 ]
