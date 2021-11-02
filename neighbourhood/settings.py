@@ -131,7 +131,7 @@ DATABASES = {
         'NAME': 'neighbor',
         'USER':'moringa',
     'PASSWORD':'Access',
-    'DISABLE_SERVER_SIDE_CURSORS': True,
+
     }
 }
 
